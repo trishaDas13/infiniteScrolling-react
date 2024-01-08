@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { nanoid } from "nanoid";
+import Header from './Header';
 
 function Images() {
   //todo: declair state varriables
   const [images, setImages] = useState([]);
-  const [count, setCount] = useState(10)
+  const [count, setCount] = useState(10);
 
-  let apiKey = "k3NdKhapkdsSAlOVr6vn0BHWZ7cFD8U0VUeG26AhKB8";
+  let apiKey = "q4kZZMSqSc4_PR-zs4DAzm2pxiiG0H3V5t2uwxkowLo";
 
   //todo: useEffact
   useEffect(() => {
@@ -26,6 +27,7 @@ function Images() {
   window.onscroll = () => {
     if ( window.innerHeight + document.documentElement.scrollTop ===
         document.documentElement.offsetHeight) {
+          console.log("chutiya mayakn");
             setCount((prevCount) => prevCount+10);
       fetchAPI();
     }
@@ -34,6 +36,7 @@ function Images() {
   //todo: render the component
   return (
     <>
+    <Header/>
       <div className="image_container">
         {images.map((item) => {
           return (
@@ -42,7 +45,7 @@ function Images() {
                 src={item.urls.small}
                 alt={item.alt_description}
                 width="250px"
-                height="200px" //*need to change the line
+                height="200px" 
               />
               <div className="image_overlay">
                 <div className="profile">
